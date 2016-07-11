@@ -14,11 +14,11 @@ GitHub Branch:     master
 
 defined( 'ABSPATH' ) or die( ' ' );
 
-add_action( 'init', 'create_app_post_type' );
+add_action( 'init', 'create_highlight_post_type' );
 
-function create_app_post_type() {
+function create_highlight_post_type() {
   
-  $app_label = array(
+  $highlight_label = array(
     'name'                  => __('Highlights'),
     'singular_name'         => __('Highlight'),
     'all_items'             => __('All Highlights'),
@@ -34,7 +34,7 @@ function create_app_post_type() {
   );
   $args = array(
     'labels'                => $highlight_label,
-    'public'                => false,
+    'public'                => true,
     'rewrite'               => array('slug' => 'highlights'),
     'menu_postion'          => 6,
     'supports'              => array('title','editor'),
