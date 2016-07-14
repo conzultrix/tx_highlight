@@ -43,4 +43,42 @@ function create_highlight_post_type() {
   register_post_type('trix_highlight', $args);
     
 }
+
+// export custom field
+if(function_exists("register_field_group")) {
+
+	register_field_group(array (
+		'id' => 'acf_highlight',
+		'title' => 'Highlight',
+		'fields' => array (
+			array (
+				'key' => 'field_5786e499cee79',
+				'label' => 'Highlight Image',
+				'name' => 'highlight_image',
+				'type' => 'image',
+				'save_format' => 'object',
+				'preview_size' => 'thumbnail',
+				'library' => 'all',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'trix_highlight',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+}
 ?>
